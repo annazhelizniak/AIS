@@ -11,7 +11,7 @@ h3, h2{
 
 .authorization_block{
     padding: 5%;
-    border: solid#006400;
+    border: solid #006400;
     border-radius: 10px;
     width: 250px;
 }
@@ -33,7 +33,7 @@ h3, h2{
     margin-left: auto;
     margin-right: auto;
     background-color: #8FBC8F;
-    border: solid#006400;
+    border: solid #006400;
     border-radius: 10px;
 }
 .authorization_form button:hover{
