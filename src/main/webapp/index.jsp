@@ -2,12 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Login ZLAGODA</title>
 </head>
+<style>
+    <%@include file="/style/login_page.css"%>
+</style>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<div class="login_page">
+    <h2>Вітаємо у системі ZLAGODA</h2>
+    <h3>Авторизуйтесь</h3>
+    <br/>
+    <div class="authorization_block">
+        <form class="authorization_form" action="#" method="post">
+            <label for="auth_email">Логін</label>
+            <input type="email" id="auth_email" placeholder="email або телефон" required >
+            <label  for="auth_pass">Пароль</label>
+            <input type="password" id="auth_pass" required >
+            <button class="form_auth_button" type="submit" name="form_auth_submit">Увійти</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
