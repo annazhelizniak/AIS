@@ -1,25 +1,46 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 21.04.2023
-  Time: 20:45
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Manager ZLAGODA</title>
-    <%@include file="/style/menu.css"%>
-</head>
-<body>
-<!-- Меню-->
-    <div class="navigation">
-        <a class="active" href="#home">Головний екран</a> <!-- Інформація по працівнику-->
-        <a href="#news">Товари</a><!-- Всі товари і інформація про них-->
-        <a href="#contact">Чек</a>
-        <a id="exit" href="#about">Вийти</a>
-        <p class="position">Менеджер</p>
-    </div>
-<!-- Основна частина-->
-</body>
-</html>
+<%@include file="header.jsp"%>
+
+<div class="profile">
+    <h2>Вітаємо у системі</h2>
+    <form class="information_about_worker" action="">
+        <fieldset>
+            <legend>Ваші данні</legend>
+            <label >ПІБ</label>
+            <br>
+            <label for="GET-surname" class="tab">    Прізвище:</label>
+            <input id="GET-surname" type="text" name="surname">
+            <br>
+            <label for="GET-name" class="tab">    Ім'я:</label>
+            <input id="GET-name" type="text" name="name">
+            <br>
+            <label for="GET-fathername" class="tab">    Побатькові:</label>
+            <input id="GET-fathername" type="text" name="fathername">
+            <br><br>
+            <label for="GET-dateOfBirth">Дата народження:</label>
+            <input id="GET-dateOfBirth" type="date" name="dateOfBirth">
+            <br><br>
+            <label for="GET-salary">Зарплата:</label>
+            <input id="GET-salary" type="number" name="salary">
+            <br><br>
+            <label for="GET-dateOfStart">Дата початку роботи:</label>
+            <input id="GET-dateOfStart" type="date" name="dateOfStart">
+            <br><br>
+            <label for="GET-phone">Телефон:</label>
+            <input id="GET-phone" type="tel" name="phone">
+            <br><br>
+            <label >Адреса:</label>
+            <br>
+            <label for="GET-city" class="tab">    Місто:</label>
+            <input id="GET-city" type="text" name="city">
+            <br>
+            <label for="GET-street" class="tab">    Вулиця:</label>
+            <input id="GET-street" type="text" name="street">
+            <br>
+            <label for="GET-index" class="tab">    Індекс:</label>
+            <input id="GET-index" type="text" name="index">
+            <br>
+            <br>
+            <button class="submit_profile_changes" type="submit" name="submit_profile_changes">Зберегти зміни</button>
+        </fieldset>
+    </form>
+</div>
