@@ -1,0 +1,42 @@
+th{
+    color: #228B22;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table input{
+    width: 100px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+}
+
+.editButton{
+    width: 100px;
+    height: 30px;
+    background-color: #EEE8AA;
+    border: solid #006400;
+    border-radius: 10px;
+}
+
+.deleteButton{
+    width: 100px;
+    height: 30px;
+    background-color: 	#CD5C5C;
+    border: solid #006400;
+    border-radius: 10px;
+}
+
+.editButton:hover{
+    background-color: #fcf8ca;
+}
+
+.deleteButton:hover{
+    background-color: 	#f78181;
+}
