@@ -1,6 +1,6 @@
 package Entity;//package Entity;
 //
-//public enum Role {
+public enum Role {}
 //    CHIEF("chief", Message.ROLE_CHIEF), MANAGER("manager", Message.ROLE_MANAGER),
 //    WAITER("waiter", Message.ROLE_WAITER);
 //
