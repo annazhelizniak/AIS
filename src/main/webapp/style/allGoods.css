@@ -16,7 +16,23 @@ td, th {
     text-align: center;
     padding: 5px;
 }
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+.search_input{
+    margin-right: 10px;
+}
 
+.left-filter{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.left-filter select{
+    margin-right: 30px;
+}
 .addButton{
     width: 100px;
     height: 30px;

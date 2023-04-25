@@ -5,7 +5,13 @@
     <div class="filter">
         <div class="left-filter">
             <p>Відфільтрувати за</p>
-            <select
+            <select name="filter">
+                <option value="name">Назва</option>
+                <option value="producer" >Виробник</option>
+                <option value="category">Категорії</option>
+            </select>
+            <p>Є в наявності:</p>
+            <input type="checkbox" id="availability_filter" name="availability">
         </div>
         <div class="rignt-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
