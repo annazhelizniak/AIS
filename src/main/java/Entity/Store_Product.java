@@ -72,7 +72,7 @@ public class Store_Product {
         return products_number;
     }
 
-    public boolean isPromotional_product() {
+    public boolean getPromotional_product() {
         return promotional_product;
     }
 
