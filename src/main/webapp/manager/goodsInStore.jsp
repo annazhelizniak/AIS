@@ -1,16 +1,78 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 25.04.2023
-  Time: 23:28
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@include file="header.jsp"%>
+
+<div class="goods_in_store">
+    <h2>Товари, що є в наявності</h2>
+
+    <div class="filter">
+        <div class="left-filter">
+            <p>Відфільтрувати за</p>
+            <select name="filter">
+                <option value="name">Назва</option>
+                <option value="producer" >Виробник</option>
+                <option value="category">Категорії</option>
+            </select>
+            <p>Є акційним:</p>
+            <input type="checkbox" id="sale" name="sale">
+        </div>
+        <div class="right-filter">
+            <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
+        </div>
+    </div>
+    <table class="tableOfGoods">
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Виробник</th>
+            <th>Характеристики</th>
+            <th>Категорії</th>
+            <th>Ціна</th>
+            <th>Кількість одииць</th>
+            <th>Є акційним</th>
+            <th>Редагувати</th>
+            <th>Видалити</th>
+        </tr>
+        <tr>
+            <td>Timely id</td>
+            <td>Timely name</td>
+            <td>Timely vurobnuk</td>
+            <td>Timely ch</td>
+            <td>Категорії</td>
+            <td>Timely price</td>
+            <td>TImely number</td>
+            <td><input type="checkbox"></td>
+            <td><button onclick="" class="editButton">Редагувати</button></td>
+            <td><button onclick="" class="deleteButton">Видалити</button></td>
+        </tr>
+    </table>
+</div>
+
+<div id="add-pop-up" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('add-pop-up').style.display = 'none'">&times;</span>
+        <h2>Додавання товару</h2>
+        <form>
+            <label for="name">Назва:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="manufacturer">Виробник:</label>
+            <input type="text" id="manufacturer" name="manufacturer" required><br><br>
+            <label for="features">Характеристики:</label>
+            <textarea id="features" name="features" rows="4" cols="50"></textarea><br><br>
+            <label for="categories">Категорії:</label>
+            <input type="text" id="categories" name="categories" required><br><br>
+            <label for="availability">Є в наявності:</label>
+            <input type="checkbox" id="availability" name="availability" value="yes"><br><br>
+            <div id="additional-fields">
+                <label for="price">Ціна товару у грн:</label>
+                <input type="number" id="price" name="price"><br><br>
+                <label for="quantity">Кількість одиниць:</label>
+                <input type="number" id="quantity" name="quantity"><br><br>
+                <label for="promo">Чи є товар акційним?</label>
+                <input type="checkbox" id="promo" name="promo" value="yes">
+            </div><br><br>
+            <button class="add_good" type="submit" name="add_good">Додати</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

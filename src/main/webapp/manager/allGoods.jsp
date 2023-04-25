@@ -13,7 +13,7 @@
             <p>Є в наявності:</p>
             <input type="checkbox" id="availability_filter" name="availability">
         </div>
-        <div class="rignt-filter">
+        <div class="right-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
             <button onclick="document.getElementById('add-pop-up').style.display = 'block'" class="addButton">Додати товар</button>
         </div>
@@ -35,7 +35,7 @@
             <td>Timely vurobnuk</td>
             <td>Timely ch</td>
             <td>Категорії</td>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" readonly></td>
             <td><button onclick="" class="editButton">Редагувати</button></td>
             <td><button onclick="" class="deleteButton">Видалити</button></td>
         </tr>
