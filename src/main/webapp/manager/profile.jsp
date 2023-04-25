@@ -20,10 +20,10 @@
             <input id="GET-dateOfBirth" type="date" name="dateOfBirth">
             <br><br>
             <label for="GET-salary">Зарплата:</label>
-            <input id="GET-salary" type="number" name="salary">
+            <input id="GET-salary" type="number" name="salary" readonly>
             <br><br>
             <label for="GET-dateOfStart">Дата початку роботи:</label>
-            <input id="GET-dateOfStart" type="date" name="dateOfStart">
+            <input id="GET-dateOfStart" type="date" name="dateOfStart" readonly>
             <br><br>
             <label for="GET-phone">Телефон:</label>
             <input id="GET-phone" type="tel" name="phone">
