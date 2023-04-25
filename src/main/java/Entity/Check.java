@@ -9,7 +9,7 @@ public class Check {
     private String id_employee;
     private String card_number;
     private LocalDateTime print_date;
-    private BigDecimal sum_date;
+    private BigDecimal sum_total;
     private BigDecimal vat;
 
     public Check() {
@@ -37,8 +37,8 @@ public class Check {
             return this;
         }
 
-        public Builder setSum_date(BigDecimal sum_date) {
-            check.sum_date = sum_date;
+        public Builder setSum_total(BigDecimal sum_total) {
+            check.sum_total = sum_total;
             return this;
         }
 
@@ -67,8 +67,8 @@ public class Check {
         return print_date;
     }
 
-    public BigDecimal getSum_date() {
-        return sum_date;
+    public BigDecimal getSum_total() {
+        return sum_total;
     }
 
     public BigDecimal getVat() {
@@ -91,8 +91,8 @@ public class Check {
         this.print_date = print_date;
     }
 
-    public void setSum_date(BigDecimal sum_date) {
-        this.sum_date = sum_date;
+    public void setSum_total(BigDecimal sum_total) {
+        this.sum_total = sum_total;
     }
 
     public void setVat(BigDecimal vat) {
@@ -104,12 +104,12 @@ public class Check {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Check check = (Check) o;
-        return check_number.equals(check.check_number) && id_employee.equals(check.id_employee) && Objects.equals(card_number, check.card_number) && print_date.equals(check.print_date) && sum_date.equals(check.sum_date) && vat.equals(check.vat);
+        return check_number.equals(check.check_number) && id_employee.equals(check.id_employee) && Objects.equals(card_number, check.card_number) && print_date.equals(check.print_date) && sum_total.equals(check.sum_total) && vat.equals(check.vat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(check_number, id_employee, card_number, print_date, sum_date, vat);
+        return Objects.hash(check_number, id_employee, card_number, print_date, sum_total, vat);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class Check {
                 ", id_employee='" + id_employee + '\'' +
                 ", card_number='" + card_number + '\'' +
                 ", print_date=" + print_date +
-                ", sum_date=" + sum_date +
+                ", sum_total=" + sum_total +
                 ", vat=" + vat +
                 '}';
     }

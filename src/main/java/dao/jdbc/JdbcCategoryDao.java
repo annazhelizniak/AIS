@@ -20,16 +20,16 @@ public class JdbcCategoryDao implements CategoryDao {
 
     private static final Logger LOGGER = LogManager.getLogger(JdbcCategoryDao.class);
 
-    private static String GET_ALL = "SELECT * FROM `category` ORDER BY name";
-    private static String GET_BY_ID = "SELECT * FROM `category` WHERE id_category=?";
-    private static String CREATE = "INSERT INTO `category` (name) VALUES (?)";
-    private static String UPDATE = "UPDATE `category` SET name=? WHERE id_category=?";
-    private static String DELETE = "DELETE FROM `category` WHERE id_category=?";
-    private static String SEARCH_CATEGORY_BY_NAME = "SELECT * FROM `category` WHERE LOWER(name) LIKE CONCAT('%', LOWER(?), '%')";
+    private static String GET_ALL = "SELECT * FROM `category` ORDER BY category_name";
+    private static String GET_BY_ID = "SELECT * FROM `category` WHERE category_number=?";
+    private static String CREATE = "INSERT INTO `category` (category_name) VALUES (?)";
+    private static String UPDATE = "UPDATE `category` SET category_name=? WHERE category_number=?";
+    private static String DELETE = "DELETE FROM `category` WHERE category_number=?";
+    private static String SEARCH_CATEGORY_BY_NAME = "SELECT * FROM `category` WHERE LOWER(category_name) LIKE CONCAT('%', LOWER(?), '%')";
 
     // table columns names
-    private static String ID = "id_category";
-    private static String NAME = "category.name";
+    private static String ID = "category_number";
+    private static String NAME = "category_name";
 
     private Connection connection;
     private boolean connectionShouldBeClosed;
