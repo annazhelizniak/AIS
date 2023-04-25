@@ -2,9 +2,12 @@
 <html>
 <head>
   <title>Manager ZLAGODA</title>
-  <%@include file="/style/menu.css"%>
-  <%@include file="/style/profile.css"%>
-  <%@include file="/style/goods.css"%>
+  <link rel="stylesheet" type="text/css"
+        href="../style/menu.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="../style/profile.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="../style/goods.css"/>
 </head>
 <body>
 <!-- Меню-->
@@ -16,6 +19,6 @@
   <p class="position">Менеджер</p>
 </div>
 <!-- Основна частина-->
-</body>
-</html>
+
+
 
