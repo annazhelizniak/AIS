@@ -2,7 +2,7 @@
 
 
 <div class="create_a_check">
-    <form class="information_about_worker" action="">
+    <form class="check" action="">
         <fieldset>
             <legend>Чек</legend>
 
