@@ -60,7 +60,7 @@
             <label for="categories">Категорії:</label>
             <input type="text" id="categories" name="categories" required><br><br>
             <label for="availability">Є в наявності:</label>
-            <input type="checkbox" id="availability" name="availability" value="yes"><br><br>
+            <input type="checkbox" id="availability" name="availability" readonly><br><br>
             <div id="additional-fields">
                 <label for="price">Ціна товару у грн:</label>
                 <input type="number" id="price" name="price"><br><br>

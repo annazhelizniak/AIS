@@ -6,7 +6,7 @@
             <label for="filter">Відфільтрувати за</label>
             <select name="filter" id="filter">
                 <option value="name">Дата створення</option>
-                <option value="producer" >Сумма</option>
+                <option value="producer" >Сума</option>
             </select>
         </div>
         <div class="right-filter">
