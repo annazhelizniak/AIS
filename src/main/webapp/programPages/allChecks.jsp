@@ -3,14 +3,11 @@
 <div class="all-checks">
     <div class="filter check-filter">
         <div class="left-filter">
-            <label for="filter">Відфільтрувати за</label>
-            <select name="filter" id="filter">
-                <option value="name">Дата створення</option>
-                <option value="producer" >Сума</option>
-            </select>
+            <label for="check-filter">Всі чеки за період з</label>
+            <input type="date" id="check-filter" class="check-filter" >
         </div>
         <div class="right-filter">
-            <input type="text" id="search_check" class="search_check" placeholder="Пошук по чакам" required >
+            <input type="text" id="search_check" class="search_check" placeholder="Пошук по номеру чеку">
         </div>
     </div>
     <h2>Список чеків</h2>
@@ -31,6 +28,7 @@
         </form>
     </div>
 </div>
+
 
 </body>
 </html>

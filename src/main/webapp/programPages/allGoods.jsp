@@ -4,14 +4,11 @@
 
     <div class="filter">
         <div class="left-filter">
-            <label for="filter">Відфільтрувати за</label>
+            <label for="filter">Категорія</label>
             <select name="filter" id="filter">
-                <option value="name">Назва</option>
-                <option value="producer" >Виробник</option>
-                <option value="category">Категорії</option>
+                <option value="all">будь-яка</option>
+                <option value="1" >____</option>
             </select>
-            <label for="availability_filter">Є в наявності:</label>
-            <input type="checkbox" id="availability_filter" name="availability">
         </div>
         <div class="right-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
