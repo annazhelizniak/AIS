@@ -1,10 +1,12 @@
 <%@include file="headerManager.jsp"%>
 
-<div class="all-clients">
+<div class="all-manager-clients">
     <h2>Усі постійні клієнти</h2>
 
     <div class="filter">
         <div class="left-filter">
+            <label for="filter-client">Відфілтрувати за відсотком</label>
+            <input type="number" id="filter-client" class="filter-client"><label for="filter-client">%</label>
         </div>
         <div class="right-filter">
             <input type="text" id="search_surname" class="search" placeholder="Пошук по прізвищу">
@@ -19,6 +21,7 @@
             <th>Адреса</th>
             <th>Відсоток</th>
             <th>Редагувати</th>
+            <th>Видалити</th>
         </tr>
         <tr>
             <td>Timely id</td>
@@ -27,6 +30,7 @@
             <td>Місто, вул, індекс</td>
             <td>%</td>
             <td><button onclick="" class="editButton">Редагувати</button></td>
+            <td><button onclick="" class="deleteButton">Видалити</button></td>
         </tr>
     </table>
 </div>
@@ -70,6 +74,5 @@
         </form>
     </div>
 </div>
-
 </body>
 </html>
