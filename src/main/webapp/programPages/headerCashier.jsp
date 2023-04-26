@@ -17,8 +17,8 @@
   <a class="active" href="profileCashier.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по касира-->
   <a class="" href="allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a>
   <a class="" href="goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
-  <a class="" href="" onclick="setActiveLink(event, this)">Клієнти</a>
-  <a class="" href="" onclick="setActiveLink(event, this)">Чеки</a>
+  <a class="" href="clients.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
+  <a class="" href="allChecks.jsp" onclick="setActiveLink(event, this)">Чеки</a>
   <a class="" href="createCheck.jsp" onclick="setActiveLink(event, this)">Створити чек</a>
   <a id="exit" href="${pageContext.request.contextPath}/index.jsp">Вийти</a>
   <p class="position">Касир</p>

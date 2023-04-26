@@ -40,8 +40,7 @@
             <input id="GET-index" type="text" name="index" readonly>
             <br>
             <br>
-            <button class="submit_profile_changes" type="submit" name="submit_profile_changes">Зберегти зміни</button>
-        </fieldset>
+         </fieldset>
     </form>
 </div>
 </body>

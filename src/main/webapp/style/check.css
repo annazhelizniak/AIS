@@ -11,3 +11,14 @@
     display: flex;
     overflow: scroll;
 }
+
+.search{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    border: 1px solid #228B22;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}

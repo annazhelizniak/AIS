@@ -7,7 +7,7 @@
             <input type="date" id="check-filter" class="check-filter" >
         </div>
         <div class="right-filter">
-            <input type="text" id="search_check" class="search_check" placeholder="Пошук по номеру чеку">
+            <input type="text" id="search_check" class="search" placeholder="Пошук по номеру чеку">
         </div>
     </div>
     <h2>Список чеків</h2>
