@@ -30,6 +30,8 @@ public class JdbcProductDao implements ProductDao {
     private static String ID_PRODUCT = "id_product";
     private static String CATEGORY_NUMBER = "category_number";
     private static String PRODUCT_NAME = "product_name";
+
+    private static String PRODUCER = "producer";
     private static String CHARACTERISTICS = "characteristics";
 
 
@@ -87,7 +89,8 @@ public class JdbcProductDao implements ProductDao {
         try (PreparedStatement query = connection.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS)) {
             query.setLong(1, product.getCategory_number());
             query.setString(2, product.getProduct_name());
-            query.setString(3, product.getCharacteristics());
+            query.setString(3, product.getProducer());
+            query.setString(4, product.getCharacteristics());
 
             query.executeUpdate();
 
@@ -107,9 +110,10 @@ public class JdbcProductDao implements ProductDao {
 
             query.setLong(1, product.getCategory_number());
             query.setString(2, product.getProduct_name());
-            query.setString(3, product.getCharacteristics());
+            query.setString(3, product.getProducer());
+            query.setString(4, product.getCharacteristics());
 
-            query.setLong(4, product.getId_product());
+            query.setLong(5, product.getId_product());
             query.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error("JdbcUserDao update SQL exception: " + product.getId_product(), e);
@@ -147,6 +151,7 @@ public class JdbcProductDao implements ProductDao {
                 setId_product(resultSet.getLong(ID_PRODUCT)).
                 setCategory_number(resultSet.getLong(CATEGORY_NUMBER))
                 .setProduct_name(resultSet.getString(PRODUCT_NAME))
+                .setProducer(resultSet.getString(PRODUCER))
                 .setCharacteristics(resultSet.getString(CHARACTERISTICS))
 
                 .build();

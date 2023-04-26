@@ -1,8 +1,8 @@
 package Entity;//package Entity;
 //
 public enum Role {}
-//    CHIEF("chief", Message.ROLE_CHIEF), MANAGER("manager", Message.ROLE_MANAGER),
-//    WAITER("waiter", Message.ROLE_WAITER);
+//    CHIEF("chief", Page.Message.ROLE_CHIEF), MANAGER("manager", Page.Message.ROLE_MANAGER),
+//    WAITER("waiter", Page.Message.ROLE_WAITER);
 //
 //    private String value;
 //    private String localizedValue;

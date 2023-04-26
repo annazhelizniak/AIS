@@ -1,3 +1,4 @@
+package Page;
 
 public final class Message {
 

@@ -3,6 +3,7 @@ package dao.jdbc;
 
 import Entity.Customer_Card;
 import Entity.Employee;
+import Entity.Product;
 import Entity.Role;
 import dao.CategoryDao;
 import dao.Customer_CardDao;
@@ -27,6 +28,8 @@ public class JdbcEmployeeDao implements EmployeeDao {
     private static String UPDATE = "UPDATE `employee`"
             + " SET empl_surname=?, empl_name=? , empl_patronymic=?, empl_role=?, salary=?, date_of_birth=?, date_of_start=?, phone_number=?, city=?, street=?, zip_code=?" + " WHERE id_employee=? ";
     private static String DELETE = "DELETE FROM `employee` WHERE id_employee=?";
+    private static String GET_ALL_KASIRS = "SELECT * FROM `employee` WHERE empl_role='kasir' ORDER BY empl_surname";
+    private static String FIND_PHONE_ADD_BY_SURNAME = "SELECT phone_number, city, street, zipcode FROM `employee` WHERE empl_surname=?";
 
     // table columns names
     private static String ID_EMPLOYEE = "id_employee";
@@ -41,6 +44,9 @@ public class JdbcEmployeeDao implements EmployeeDao {
     private static String CITY = "city";
     private static String STREET = "street";
     private static String ZIP_CODE = "zip_code";
+
+    private static String EMAIL = "email";
+    private static String PASSWORD = "password";
 
 
     private Connection connection;
@@ -73,6 +79,38 @@ public class JdbcEmployeeDao implements EmployeeDao {
         }
         return employees;
     }
+    @Override
+    public List<Employee> gET_ALL_KASIRS() {
+        List<Employee> employees = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(GET_ALL_KASIRS)) {
+            while (resultSet.next()) {
+                employees.add(extractUEmployeeFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcUserDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return employees;
+    }
+    @Override
+    public List<Employee> fIND_PHONE_ADD_BY_SURNAME(String surname){
+        List<Employee> customerCards = new ArrayList<>();
+
+        try (PreparedStatement query = connection.prepareStatement(FIND_PHONE_ADD_BY_SURNAME)) {
+            query.setString(1, surname);
+            ResultSet resultSet = query.executeQuery();
+            while (resultSet.next()) {
+                customerCards.add(extractUEmployeeFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcUserDao searchUsersBySurname SQL exception: " + surname, e);
+            throw new ServerException(e);
+        }
+        return customerCards;
+
+    }
+
 
     @Override
     public Optional<Employee> getById(String id) {
@@ -108,6 +146,8 @@ public class JdbcEmployeeDao implements EmployeeDao {
             query.setString(9, employee.getCity());
             query.setString(10, employee.getStreet());
             query.setString(11, employee.getZip_code());
+            query.setString(12, employee.getEmail());
+            query.setString(13, employee.getPassword());
             query.executeUpdate();
 
             ResultSet keys = query.getGeneratedKeys();
@@ -135,7 +175,9 @@ public class JdbcEmployeeDao implements EmployeeDao {
             query.setString(9, employee.getCity());
             query.setString(10, employee.getStreet());
             query.setString(11, employee.getZip_code());
-            query.setString(12, employee.getId_employee());
+            query.setString(12, employee.getEmail());
+            query.setString(13, employee.getPassword());
+            query.setString(14, employee.getId_employee());
             query.executeUpdate();
         } catch (SQLException e) {
             LOGGER.error("JdbcUserDao update SQL exception: " + employee.getId_employee(), e);
@@ -177,9 +219,12 @@ public class JdbcEmployeeDao implements EmployeeDao {
                 .setSalary(resultSet.getBigDecimal(SALARY))
                 .setDate_of_birth(resultSet.getTimestamp(DATE_OF_BIRTH).toLocalDateTime())
                 .setDate_of_start(resultSet.getTimestamp(DATE_OF_START).toLocalDateTime())
+                .setPhone_number(resultSet.getString(PHONE_NUMBER))
                 .setCity(resultSet.getString(CITY))
                 .setStreet(resultSet.getString(STREET))
-                .setZip_code(resultSet.getString(CITY))
+                .setZip_code(resultSet.getString(ZIP_CODE))
+                .setEmail(resultSet.getString(EMAIL))
+                .setPassword(resultSet.getString(PASSWORD))
                 .build();
     }
 
