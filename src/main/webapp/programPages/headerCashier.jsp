@@ -14,7 +14,7 @@
 <body>
 <!-- Меню-->
 <div class="navigation">
-  <a class="active" href="profileCashier.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по касира-->
+  <a class="active" href="profile.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по касира-->
   <a class="" href="allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a>
   <a class="" href="goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
   <a class="" href="clients.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
