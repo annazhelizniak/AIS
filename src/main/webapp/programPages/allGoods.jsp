@@ -1,21 +1,21 @@
-<%@include file="header.jsp"%>
-
-<div class="goods_in_store">
-    <h2>Товари, що є в наявності</h2>
+<%@include file="headerManager.jsp"%>
+<div class="goods">
+    <h2>Товари, що можуть бути в магазині</h2>
 
     <div class="filter">
         <div class="left-filter">
-            <p>Відфільтрувати за</p>
-            <select name="filter">
+            <label for="filter">Відфільтрувати за</label>
+            <select name="filter" id="filter">
                 <option value="name">Назва</option>
                 <option value="producer" >Виробник</option>
                 <option value="category">Категорії</option>
             </select>
-            <p>Є акційним:</p>
-            <input type="checkbox" id="sale" name="sale">
+            <label for="availability_filter">Є в наявності:</label>
+            <input type="checkbox" id="availability_filter" name="availability">
         </div>
         <div class="right-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
+            <button onclick="document.getElementById('add-pop-up').style.display = 'block'" class="addButton">Додати товар</button>
         </div>
     </div>
     <table class="tableOfGoods">
@@ -25,9 +25,7 @@
             <th>Виробник</th>
             <th>Характеристики</th>
             <th>Категорії</th>
-            <th>Ціна</th>
-            <th>Кількість одииць</th>
-            <th>Є акційним</th>
+            <th>Є в наявності</th>
             <th>Редагувати</th>
             <th>Видалити</th>
         </tr>
@@ -37,9 +35,7 @@
             <td>Timely vurobnuk</td>
             <td>Timely ch</td>
             <td>Категорії</td>
-            <td>Timely price</td>
-            <td>TImely number</td>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" readonly></td>
             <td><button onclick="" class="editButton">Редагувати</button></td>
             <td><button onclick="" class="deleteButton">Видалити</button></td>
         </tr>

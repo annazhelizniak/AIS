@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="headerManager.jsp"%>
 
 <div class="profile">
     <h2>Вітаємо у системі</h2>
