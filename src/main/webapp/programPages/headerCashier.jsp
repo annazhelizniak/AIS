@@ -12,12 +12,24 @@
 <body>
 <!-- Меню-->
 <div class="navigation">
-  <a class="active" href="profile.jsp">Кабінет користувача</a> <!-- Інформація по касира-->
-  <a href="goodsInStore.jsp">Товари магазину</a>
-  <a href="createCheck.jsp">Створити чек</a>
+  <a class="active" href="profile.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по касира-->
+  <a class="" href="goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
+  <a class="" href="createCheck.jsp" onclick="setActiveLink(event, this)">Створити чек</a>
   <a id="exit" href="${pageContext.request.contextPath}/index.jsp">Вийти</a>
   <p class="position">Касир</p>
 </div>
+<!--Керування стилями меню-->
+<script>
+  function setActiveLink(event, link) {
+    event.preventDefault(); // Відмінити дію за замовчуванням (перезавантаження сторінки)
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      link.classList.remove('active');
+    });
+
+    link.classList.add('active');
+  }
+</script>
 <!-- Основна частина-->
 
 
