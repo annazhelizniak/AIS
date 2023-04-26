@@ -39,7 +39,7 @@
             <td>Категорії</td>
             <td>Timely price</td>
             <td>TImely number</td>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" readonly></td>
             <td><button onclick="" class="editButton">Редагувати</button></td>
             <td><button onclick="" class="deleteButton">Видалити</button></td>
         </tr>

@@ -15,7 +15,7 @@
         </div>
         <div class="right-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
-            <button onclick="document.getElementById('add-pop-up').style.display = 'block'" class="addButton">Додати товар</button>
+            <button onclick="document.getElementById('add-pop-up').style.display = 'block'" class="addButton ">Додати товар</button>
         </div>
     </div>
     <table class="tableOfGoods">

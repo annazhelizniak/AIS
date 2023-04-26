@@ -15,7 +15,7 @@
   <a class="active" href="profile.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по менеджера-->
   <a class="" href="allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
   <a class="" href="goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
-  <a class="" href="createCheck.jsp" onclick="setActiveLink(event, this)">Чек</a>
+  <a class="" href="allChecks.jsp" onclick="setActiveLink(event, this)">Чеки</a>
   <a id="exit" href="${pageContext.request.contextPath}/index.jsp">Вийти</a>
   <p class="position">Менеджер</p>
 </div>
