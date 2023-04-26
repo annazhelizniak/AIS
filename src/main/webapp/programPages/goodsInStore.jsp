@@ -5,14 +5,17 @@
 
     <div class="filter">
         <div class="left-filter">
-            <p>Відфільтрувати за</p>
+            <p>Сортувати за</p>
             <select name="filter">
-                <option value="name">Назва</option>
-                <option value="producer" >Виробник</option>
-                <option value="category">Категорії</option>
+                <option value="name">Назвою</option>
+                <option value="producer" >К-сть одиниць</option>
             </select>
             <p>Є акційним:</p>
-            <input type="checkbox" id="sale" name="sale">
+            <select name="filter">
+                <option value="all">Всі</option>
+                <option value="sale" >Акційні</option>
+                <option value="nosale" >Не акційні</option>
+            </select>
         </div>
         <div class="right-filter">
             <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
@@ -20,7 +23,7 @@
     </div>
     <table class="tableOfGoods">
         <tr>
-            <th>ID</th>
+            <th>UPC</th>
             <th>Назва</th>
             <th>Виробник</th>
             <th>Характеристики</th>
