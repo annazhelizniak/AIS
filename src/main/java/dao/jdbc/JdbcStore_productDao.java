@@ -14,15 +14,22 @@ import java.util.Optional;
 public class JdbcStore_productDao implements Store_productDao {
     private static final Logger LOGGER = LogManager.getLogger(JdbcCheckDao.class);
 
-    private static String GET_ALL = "SELECT * FROM `store_product` ORDER BY print_data";
+    private static String GET_ALL = "SELECT * FROM `store_product` ORDER BY upc";
     private static String GET_BY_ID = "SELECT * FROM `store_product` WHERE upc=?";
+
+    private static String GET_BY_ID_FOR_KASIR = "SELECT selling_price, products_number FROM `store_product` WHERE upc=?";
     private static String CREATE = "INSERT INTO `store_product`"
             + " (upc_prom, id_product, selling_price, products_number, promotional_product) VALUES (?,  ?, ?, ?, ?)";
     private static String UPDATE = "UPDATE `store_product`"
             + " SET upc_prom=?, id_product=? , selling_price=?, products_number=?, promotional_product=?" + " WHERE upc=? ";
     private static String DELETE = "DELETE FROM `store_product` WHERE upc=?";
 
+    private static String ALL_PRODUCTS_FOR_SALE = "SELECT * FROM `product` WHERE product_number IN (SELECT product_number FROM 'store_product' WHERE promotional_product =true) ORDER BY product_name";
+    private static String ALL_PRODUCTS_NOT_FOR_SALE = "SELECT * FROM `product` WHERE product_number IN (SELECT product_number FROM 'store_product' WHERE promotional_product =false) ORDER BY product_name";
 
+    private static String ALL_PRODUCTS_FOR_SALE_SORT_BY_NUMBER = "SELECT * FROM `product` WHERE product_number IN (SELECT product_number FROM 'store_product' WHERE promotional_product =true) ORDER BY products_number";
+    private static String ALL_PRODUCTS_NOT_FOR_SALE_BY_NUMBER = "SELECT * FROM `product` WHERE product_number IN (SELECT product_number FROM 'store_product' WHERE promotional_product =false) ORDER BY products_number";
+    private static String ALL_PRODUCTS_FROM_STORE_SORTED_BY_NUMBER =   "SELECT product_name FROM 'product' INNER JOIN 'store_product' ON product.id_product = store_product.id_product ORDER BY products_number";
 
 
     // table columns names
@@ -50,6 +57,84 @@ public class JdbcStore_productDao implements Store_productDao {
         this.connection = connection;
     }
 
+
+    @Override
+    public List<Store_Product> aLL_PRODUCTS_FOR_SALE_SORT_BY_NUMBER() {
+        List<Store_Product> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(ALL_PRODUCTS_FOR_SALE_SORT_BY_NUMBER)) {
+            while (resultSet.next()) {
+                categories.add(extractStore_ProductFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
+    @Override
+    public List<Store_Product> aLL_PRODUCTS_NOT_FOR_SALE_SORT_BY_NUMBER() {
+        List<Store_Product> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(ALL_PRODUCTS_NOT_FOR_SALE_BY_NUMBER)) {
+            while (resultSet.next()) {
+                categories.add(extractStore_ProductFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
+
+    @Override
+    public List<Store_Product> aLL_PRODUCTS_FROM_STORE_SORTED_BY_NUMBER() {
+        List<Store_Product> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(ALL_PRODUCTS_FROM_STORE_SORTED_BY_NUMBER)) {
+            while (resultSet.next()) {
+                categories.add(extractStore_ProductFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
+
+    @Override
+    public List<Store_Product> aLL_PRODUCTS_NOT_FOR_SALE() {
+        List<Store_Product> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(ALL_PRODUCTS_NOT_FOR_SALE)) {
+            while (resultSet.next()) {
+                categories.add(extractStore_ProductFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
+
+
+
+
+
+    @Override
+    public List<Store_Product> aLL_PRODUCTS_FOR_SALE() {
+        List<Store_Product> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(ALL_PRODUCTS_FOR_SALE)) {
+            while (resultSet.next()) {
+                categories.add(extractStore_ProductFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
     @Override
     public List<Store_Product> getAll() {
         List<Store_Product> categories = new ArrayList<>();
@@ -64,7 +149,22 @@ public class JdbcStore_productDao implements Store_productDao {
         }
         return categories;
     }
+    @Override
+    public Optional<Store_Product> getByIdFOR_KASIR(String id) {
+        Optional<Store_Product> category = Optional.empty();
+        try (PreparedStatement query = connection.prepareStatement(GET_BY_ID_FOR_KASIR)) {
+            query.setString(1, id);
+            ResultSet resultSet = query.executeQuery();
+            while (resultSet.next()) {
+                category = Optional.of(extractStore_ProductFromResultSet(resultSet));
+            }
 
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getById SQL exception: " + id, e);
+            throw new ServerException(e);
+        }
+        return category;
+    }
     @Override
     public Optional<Store_Product> getById(String id) {
         Optional<Store_Product> category = Optional.empty();

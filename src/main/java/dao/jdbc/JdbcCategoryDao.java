@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import Entity.Product;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -26,6 +27,15 @@ public class JdbcCategoryDao implements CategoryDao {
     private static String UPDATE = "UPDATE `category` SET category_name=? WHERE category_number=?";
     private static String DELETE = "DELETE FROM `category` WHERE category_number=?";
     private static String SEARCH_CATEGORY_BY_NAME = "SELECT * FROM `category` WHERE LOWER(category_name) LIKE CONCAT('%', LOWER(?), '%')";
+    private static String SEARCH_CATEGORY_IN_CHECK = "SELECT * FROM `category` WHERE category_number IN "
+    + "(SELECT category_number FROM `product` WHERE id_product IN "
+            + "(SELECT id_product FROM `store_product` WHERE upc IN "
+            + "(SELECT upc FROM `upc` WHERE check_number IN "
+            + "(SELECT check_number FROM `sale`))))";
+    private static String SEARCH_CATEGORY_FROM_STORE = "SELECT * FROM `category` WHERE category_number IN "
+            + "(SELECT category_number FROM `product` WHERE id_product IN "
+            + "(SELECT id_product FROM `store_product` WHERE upc IN "
+            + "(SELECT upc FROM `upc`)))";
 
     // table columns names
     private static String ID = "category_number";
@@ -48,6 +58,34 @@ public class JdbcCategoryDao implements CategoryDao {
         this.connection = connection;
     }
 
+    @Override
+    public List<Category> sEARCH_CATEGORY_IN_CHECK(){
+        List<Category> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(SEARCH_CATEGORY_IN_CHECK)) {
+            while (resultSet.next()) {
+                categories.add(extractCategoryFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
+    @Override
+    public List<Category> sEARCH_CATEGORY_FROM_STORE(){
+        List<Category> categories = new ArrayList<>();
+
+        try (Statement query = connection.createStatement(); ResultSet resultSet = query.executeQuery(SEARCH_CATEGORY_FROM_STORE)) {
+            while (resultSet.next()) {
+                categories.add(extractCategoryFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            LOGGER.error("JdbcCategoryDao getAll SQL exception", e);
+            throw new ServerException(e);
+        }
+        return categories;
+    }
     @Override
     public List<Category> getAll() {
         List<Category> categories = new ArrayList<>();

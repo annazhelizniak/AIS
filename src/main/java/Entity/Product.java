@@ -6,6 +6,8 @@ public class Product {
     private Long id_product;
     private Long category_number;
     private String product_name;
+
+    private String producer;
     private String characteristics;
 
     public Product(){}
@@ -25,6 +27,10 @@ public class Product {
         }
         public Builder setProduct_name(String name) {
             product.product_name = name;
+            return this;
+        }
+        public Builder setProducer(String producer) {
+            product.producer = producer;
             return this;
         }
 
@@ -68,6 +74,14 @@ public class Product {
 
     public void setCharacteristics(String characteristics) {
         this.characteristics = characteristics;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
     }
 
     @Override

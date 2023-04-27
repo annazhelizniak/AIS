@@ -18,6 +18,10 @@ public class Employee {
     private String street;
     private String zip_code;
 
+    private String email;
+
+    private String password;
+
     public Employee() {
     }
     public static class Builder implements IBuilder<Employee> {
@@ -82,6 +86,16 @@ public class Employee {
             return this;
         }
 
+        public Builder setEmail(String email) {
+            employee.email = email;
+            return this;
+        }
+
+        public Builder setPassword(String password) {
+            employee.password = password;
+            return this;
+        }
+
         @Override
         public Employee build() {
             return employee;
@@ -135,6 +149,14 @@ public class Employee {
         return zip_code;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public void setId_employee(String id_employee) {
         this.id_employee = id_employee;
     }
@@ -182,7 +204,13 @@ public class Employee {
     public void setZip_code(String zip_code) {
         this.zip_code = zip_code;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
