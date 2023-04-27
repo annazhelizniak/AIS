@@ -25,6 +25,23 @@ import java.util.Optional;
                 + " SET cust_name=?, cust_surname=? , city=?, street=?, zipcode=?, phone_number=?, percent=?, cust_patronymic=?" + " WHERE card_number=? ";
         private static String DELETE = "DELETE FROM `customer_card` WHERE card_number=?";
         private static String SEARCH_USERS_BY_SURNAME = "SELECT * FROM `customer_card` WHERE LOWER(cust_surname) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_NAME = "SELECT * FROM `customer_card` WHERE LOWER(cust_name) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_PATRONYMIC= "SELECT * FROM `customer_card` WHERE LOWER(cust_patronymic) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_PHONE_NUMBER = "SELECT * FROM `customer_card` WHERE LOWER(phone_number) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_CITY = "SELECT * FROM `customer_card` WHERE LOWER(city) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_STREET = "SELECT * FROM `customer_card` WHERE LOWER(street) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_BY_ZIPCODE= "SELECT * FROM `customer_card` WHERE LOWER(zipcode) LIKE CONCAT('%', LOWER(?), '%')";
+        private static String SEARCH_USERS_WHO_BOUGHT_PRODUCT= "SELECT * FROM `customer_card` WHERE card_number IN "
+                +"(SELECT card_number FROM `check` WHERE check_number IN"
+                +"(SELECT check_number FROM `sale` WHERE upc IN"
+                +"(SELECT upc FROM `store_product` WHERE id_product IN"
+                +"(SELECT id_product FROM `product` WHERE product_name=? )))";
+
+
+        private static String GET_CLIENTS_BY_PERCENT = "SELECT * FROM `customer_card` WHERE percent=? ORDER BY cust_surname";
+
+
+
 
         private static String SEARCH_BEST_WAITERS_PER_PERIOD = "SELECT * FROM `customer_card` WHERE card_number IN "
                 + "(SELECT card_number FROM `order`"
@@ -151,9 +168,24 @@ import java.util.Optional;
                 throw new ServerException(e);
             }
         }
-
         @Override
-        public List<Customer_Card> searchCustomersByName(String surname) {
+        public List<Customer_Card> gET_CLIENTS_BY_PERCENT(String persent) {
+            List<Customer_Card> customerCards = new ArrayList<>();
+
+            try (PreparedStatement query = connection.prepareStatement(GET_CLIENTS_BY_PERCENT)) {
+                query.setString(1, persent);
+                ResultSet resultSet = query.executeQuery();
+                while (resultSet.next()) {
+                    customerCards.add(extractUserFromResultSet(resultSet));
+                }
+            } catch (SQLException e) {
+                LOGGER.error("JdbcUserDao searchUsersBySurname SQL exception: " + persent, e);
+                throw new ServerException(e);
+            }
+            return customerCards;
+        }
+        @Override
+        public List<Customer_Card> searchCustomersBySurname(String surname) {
             List<Customer_Card> customerCards = new ArrayList<>();
 
             try (PreparedStatement query = connection.prepareStatement(SEARCH_USERS_BY_SURNAME)) {
