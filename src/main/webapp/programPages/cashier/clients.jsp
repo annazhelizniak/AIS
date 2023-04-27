@@ -1,4 +1,4 @@
-<%@include file="headerManager.jsp"%>
+<%@include file="../headerManager.jsp"%>
 
 <div class="all-clients">
     <h2>Усі постійні клієнти</h2>

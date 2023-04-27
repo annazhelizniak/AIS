@@ -1,4 +1,4 @@
-<%@include file="headerManager.jsp"%>
+<%@include file="../headerManager.jsp"%>
 
 <div class="all-checks">
     <div class="filter check-filter">

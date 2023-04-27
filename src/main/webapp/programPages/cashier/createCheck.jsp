@@ -1,4 +1,4 @@
-<%@include file="headerManager.jsp"%>
+<%@include file="../headerManager.jsp"%>
 
 
 <div class="create_a_check">
