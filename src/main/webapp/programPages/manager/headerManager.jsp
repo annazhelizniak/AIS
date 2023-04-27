@@ -13,11 +13,11 @@
 <!-- Меню-->
 <div class="navigation">
   <a class="active" href="profileManager.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по менеджера-->
-  <a class="" href="" onclick="setActiveLink(event, this)">Працівники</a>
-  <a class="" href="managerClient.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
+  <a class="" href="workers.jsp" onclick="setActiveLink(event, this)">Працівники</a>
+  <a class="" href="managerClients.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
   <a class="" href="category.jsp" onclick="setActiveLink(event, this)">Категорії</a>
-  <a class="" href="../cashier/allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
-  <a class="" href="../cashier/goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
+  <a class="" href="managerAllGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
+  <a class="" href="managerGoodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
   <a class="" href="managerAllChecks.jsp" onclick="setActiveLink(event, this)">Чеки</a>
   <a id="exit" href="${pageContext.request.contextPath}/index.jsp">Вийти</a>
   <p class="position">Менеджер</p>
