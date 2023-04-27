@@ -3,21 +3,21 @@
 <head>
   <title>Manager ZLAGODA</title>
   <link rel="stylesheet" type="text/css"
-        href="../style/menu.css"/>
+        href="../../style/menu.css"/>
   <link rel="stylesheet" type="text/css"
-        href="../style/profile.css"/>
+        href="../../style/profile.css"/>
   <link rel="stylesheet" type="text/css"
-        href="../style/allGoods.css"/>
+        href="../../style/allGoods.css"/>
 </head>
 <body>
 <!-- Меню-->
 <div class="navigation">
-  <a class="active" href="cashier/profileCashier.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по менеджера-->
+  <a class="active" href="profileManager.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по менеджера-->
   <a class="" href="" onclick="setActiveLink(event, this)">Працівники</a>
   <a class="" href="managerClient.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
   <a class="" href="" onclick="setActiveLink(event, this)">Категорії</a>
-  <a class="" href="cashier/allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
-  <a class="" href="cashier/goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
+  <a class="" href="../cashier/allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
+  <a class="" href="../cashier/goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
   <a class="" href="managerAllChecks.jsp" onclick="setActiveLink(event, this)">Чеки</a>
   <a id="exit" href="${pageContext.request.contextPath}/index.jsp">Вийти</a>
   <p class="position">Менеджер</p>

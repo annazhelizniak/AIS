@@ -1,4 +1,4 @@
-<%@include file="../headerManager.jsp"%>
+<%@include file="../manager/headerManager.jsp"%>
 <div class="goods">
     <h2>Товари, що можуть бути в магазині</h2>
 
