@@ -18,7 +18,7 @@
       </select>
     </div>
     <div class="right-filter">
-      <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам">
+      <input type="text" id="search_input" class="search" placeholder="Пошук по товарам">
       <button onclick="" class="searchButton">Шукати</button>
     </div>
   </div>

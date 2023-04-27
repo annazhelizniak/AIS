@@ -38,6 +38,16 @@
 
     <h2>Загальна сума проданих товарів з чеків:</h2>
     <p><span id="allEarnedMoney">3030</span> грн</p>
+    <h3>Загальна кількість проданого товару</h3>
+    <div class="numberOfG">
+        <input type="text" placeholder="id товару">
+        <p>за період з</p>
+        <input type="date" >
+        <p>по</p>
+        <input type="date" >
+        <button class="addButton">Обрахувати</button>
+        <p><span id="numberOfGoods">22</span> шт</p>
+    </div>
 </div>
 
 </body>

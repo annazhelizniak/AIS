@@ -22,3 +22,11 @@
     background-color: #f8f8f8;
     resize: none;
 }
+
+.numberOfG{
+    display: flex;
+    align-items: center;
+}
+.numberOfG p{
+    margin: 0px 10px 0px 10px;
+}
