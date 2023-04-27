@@ -18,7 +18,8 @@
             </select>
         </div>
         <div class="right-filter">
-            <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
+            <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам">
+            <button onclick="" class="searchButton">Шукати</button>
         </div>
     </div>
     <table class="tableOfGoods">

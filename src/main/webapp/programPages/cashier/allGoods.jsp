@@ -11,7 +11,8 @@
             </select>
         </div>
         <div class="right-filter">
-            <input type="text" id="search_input" class="search_input" placeholder="Пошук по товарам" required >
+            <input type="text" id="search_input" class="search" placeholder="Пошук по товарам">
+            <button onclick="" class="searchButton">Шукати</button>
             <button onclick="document.getElementById('add-pop-up').style.display = 'block'" class="addButton ">Додати товар</button>
         </div>
     </div>

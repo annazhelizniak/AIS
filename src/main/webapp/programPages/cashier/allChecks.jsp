@@ -8,6 +8,7 @@
         </div>
         <div class="right-filter">
             <input type="text" id="search_check" class="search" placeholder="Пошук по номеру чеку">
+            <button onclick="" class="searchButton">Шукати</button>
         </div>
     </div>
     <h2>Список чеків</h2>

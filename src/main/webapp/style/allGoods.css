@@ -58,6 +58,20 @@ td, th {
     border: solid #006400;
     border-radius: 10px;
 }
+.searchButton{
+    width: 80px;
+    height: 30px;
+    background-color:  #8FBC8F;
+    border: solid #006400;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.searchButton:hover{
+    background-color: #b3e6b3;
+}
+
 .addButton:hover{
     background-color: #b3e6b3;
 }

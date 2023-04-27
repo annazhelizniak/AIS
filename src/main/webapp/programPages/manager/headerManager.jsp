@@ -15,7 +15,7 @@
   <a class="active" href="profileManager.jsp" onclick="setActiveLink(event, this)">Кабінет користувача</a> <!-- Інформація по менеджера-->
   <a class="" href="" onclick="setActiveLink(event, this)">Працівники</a>
   <a class="" href="managerClient.jsp" onclick="setActiveLink(event, this)">Клієнти</a>
-  <a class="" href="" onclick="setActiveLink(event, this)">Категорії</a>
+  <a class="" href="category.jsp" onclick="setActiveLink(event, this)">Категорії</a>
   <a class="" href="../cashier/allGoods.jsp" onclick="setActiveLink(event, this)">Всі товари</a><!-- Всі товари і інформація про них-->
   <a class="" href="../cashier/goodsInStore.jsp" onclick="setActiveLink(event, this)">Товари магазину</a>
   <a class="" href="managerAllChecks.jsp" onclick="setActiveLink(event, this)">Чеки</a>

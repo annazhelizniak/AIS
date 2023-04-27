@@ -5,11 +5,12 @@
 
     <div class="filter">
         <div class="left-filter">
-            <label for="filter-client">Відфілтрувати за відсотком</label>
+            <label for="filter-client">Відфільтрувати за відсотком</label>
             <input type="number" id="filter-client" class="filter-client"><label for="filter-client">%</label>
         </div>
         <div class="right-filter">
             <input type="text" id="search_surname" class="search" placeholder="Пошук по прізвищу">
+            <button onclick="" class="searchButton">Шукати</button>
             <button onclick="document.getElementById('add-client-pop-up').style.display = 'block'" class="addButton ">Додати клієнта</button>
         </div>
     </div>

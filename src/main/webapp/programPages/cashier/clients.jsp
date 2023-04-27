@@ -8,6 +8,7 @@
         </div>
         <div class="right-filter">
             <input type="text" id="search_surname" class="search" placeholder="Пошук по прізвищу">
+            <button onclick="" class="searchButton">Шукати</button>
             <button onclick="document.getElementById('add-client-pop-up').style.display = 'block'" class="addButton ">Додати клієнта</button>
         </div>
     </div>
